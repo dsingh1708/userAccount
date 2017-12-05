@@ -1,0 +1,29 @@
+
+body{
+	background-image: url("images/abc.jpeg");
+	background-repeat: no-repeat;
+	background-size: 146%;
+
+}
+div.logincss {
+	max-width: 420px;
+    padding: 40px 38px 66px;
+    margin: 0 auto; 
+	margin-top:150px ; 
+	border-style: solid;
+	padding-top: 100px;
+}
+.carousel-inner > .item > img {
+  width:640px;
+  height:400px;
+  margin-top:55px;
+}
+
+.box{
+	padding-right: 359px;
+}
+.contentbox{
+	background-image: url("images/man.jpg");
+	background-repeat: no-repeat;
+	
+}
