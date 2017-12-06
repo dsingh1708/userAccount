@@ -3,6 +3,8 @@ body{
 	background-image: url("images/abc.jpeg");
 	background-repeat: no-repeat;
 	background-size: 146%;
+	image-rendering: 200%;
+    padding-right: 345px;
 
 }
 div.logincss {

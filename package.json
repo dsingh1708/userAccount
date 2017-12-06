@@ -1,11 +1,11 @@
 {
-  "name": "angularapp",
+  "name": "login_regs_form",
   "version": "1.0.0",
-  "description": "Angular Application",
-  "main": "script.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "FRONT END TEAM",
+  "author": "",
   "license": "ISC"
 }

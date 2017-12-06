@@ -4,32 +4,32 @@
   <title>Login Form</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script> -->
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body ng-app="myApp" ng-controller="myCtrl">
-  <div class="box"> 
+<body ng-app="userApp" ng-controller="userCtrl">
 <div class=" logincss">
    <ul class="nav nav-tabs">
                   <li class="active"><a href="#login" data-toggle="tab"> Login </a></li>
                   <li><a href="#signup" data-toggle="tab"> Signup </a></li>
-               </ul>
-<br>
+               </ul><br>
+
 
                <form class="form-horizontal" id="validateForm" name="userForm" novalidate>
               <div class="tab-content">
                 <div id="login" class="tab-pane fade in active">
-                <p style="color:#80b3ff "><h2><center>Login</center></h2><hr></p>
+                <h2><center>Login</center></h2><hr>
 
 <!--USERNAME-->
                 <div class="input-group" ng-class="{'has-error' : userForm.UserName.$invalid && (userForm.UserName.$dirty||submitted)}">
                   <span class="input-group-addon">
                  <i class="glyphicon glyphicon-user"></i></span>
 
-                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="uname.UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
+                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="user.UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
 
                   <p ng-show="userForm.username.$error.required && (userForm.username.$dirty || submitted)" class="help-block">You username is required.</p>
-                   <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
-                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p>
+                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
+                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
                 </div><br>
 
 <!--PASSWORD-->
@@ -37,7 +37,7 @@
                   <span class="input-group-addon">
                    <i class="glyphicon glyphicon-lock"></i></span>
                  
-                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="pwd.password" id="pwd"  required>
+                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="user.password" id="pwd"  ng-required="true">
                   <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
 
                 </div> <br>
@@ -49,45 +49,53 @@
 
 <!--BTN-->
                   <a href="#forgot" data-toggle="modal"><span></span> Forgot Password</a>
-                  <button class="btn btn-primary pull-right" ng-click="login()"><a href="#/Login"><strong>Login</strong></button>
+                  <button class="btn btn-primary pull-right" ng-click="login()">Login</button>
                     </div>
 
 
               <div id="signup" class="tab-pane fade">
                 <h2><center>Sign Up</center></h2><hr>
 
+<!---registration- -->
 
-                <div class="input-group">
+<!--username-->
+                <div class="input-group" ng-class="{'has-error' : userForm.UserName.$invalid && (userForm.UserName.$dirty||submitted)}">
                   <span class="input-group-addon">
                  <i class="glyphicon glyphicon-user"></i></span>
-                 <input type="text" class="form-control" placeholder="Enter User name" ng-model ="unameR" id ="uname1" required>
+
+                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="user.UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
+
+                  <p ng-show="userForm.username.$error.required && (userForm.username.$dirty || submitted)" class="help-block">You username is required.</p>
+                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
+                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
                 </div> <br>
 
-
-                <div class="input-group">
+<!--emailid-->
+                <div class="input-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
                   <span class="input-group-addon">
                  <i class="glyphicon glyphicon-envelope"></i></span>
-                 <input type="text" class="form-control" placeholder="Enter your Email Id"  ng-model ="emailR" id="email1" required>
+                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="user.email" id="email"  ng-required="true">
                 </div> <br>
+                <!-- pattern="/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*$/" -->
 
-
+<!--password-->
                 <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
                   <span class="input-group-addon">
                    <i class="glyphicon glyphicon-lock"></i></span>
                  
-                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="pwd.password" id="pwd"  required>
+                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="user.password" id="pwd"  required>
                   <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
 
                 </div> <br>
 
 
-                 <button type="submit" class="btn btn-primary pull-right" ng-click="register()"><a href="#/Register"><strong>Register</strong></button>
+                 <button type="submit" class="btn btn-primary pull-right" ng-click="register()">Register</button>
               </div>
 
 
               </form>
 
-
+<!--forgot-->
               <div class="modal fade" id="forgot">
                <div class="modal-dialog">
                         <div class="modal-content">
@@ -96,26 +104,28 @@
                           <h4 class="modal-title">Recover your Password</h4>
                         </div>
 
+              <!--email-->
+                               <div class="input-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-envelope"></i></span>
+                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="user.email" id="email" ng-required="true">
+                </div> <br>
 
-                               <div class="modal-body">
-                                  <div class="input-group">
-                               <span class="input-group-addon">
-                                  <i class="glyphicon glyphicon-envelope"></i></span>
-                                  <input type="text" class="form-control" placeholder="Enter your Email Id"  name ="email1" id="email1" pattern="[a-z]{3}" required>
-                                  </div> <br>
+                  <!--password-->
 
+                                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-lock"></i></span>
+                 
+                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="user.password" id="pwd"  required>
+                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
 
-                                <div class="input-group">
-                                  <span class="input-group-addon">
-                                  <i class="glyphicon glyphicon-lock"></i></span>
-                                  <input type ="password"  placeholder ="Enter your new Password" class="form-control"  name ="pwd1" pattern="[a-z]{3}" id="pwd1"  required>
-                                  </div> <br>
-
-
-                           </div>
+                </div> <br>
                            <div class="modal-footer">
-                         <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                         <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Save
+                         </button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal">cancel
+                         </button>
 
                         </div>
                       </div>
@@ -123,12 +133,11 @@
               </div>
             </div>
           </div>
-</div>
+          <div ng-view></div>
           <script src="bower_components/angular/angular.min.js"></script>
           <script src="bower_components/angular-route/angular-route.min.js"></script>
           <script src="bower_components/jquery/dist/jquery.min.js"></script>
           <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-           <script src="public/script.js"></script> 
-           <div ng-include="public/loginsucess.html"></div>
-          <!-- <script src="public/loginsucess.html"></script> -->
+          <script src="public/script.js"></script>
+</body>
 </html>
