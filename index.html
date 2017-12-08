@@ -8,135 +8,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="userApp" ng-controller="userCtrl">
-<div class=" logincss">
-   <ul class="nav nav-tabs">
-                  <li class="active"><a href="#login" data-toggle="tab"> Login </a></li>
-                  <li><a href="#signup" data-toggle="tab"> Signup </a></li>
-               </ul><br>
 
 
-               <form class="form-horizontal" id="validateForm" name="userForm" novalidate>
-              <div class="tab-content">
-                <div id="login" class="tab-pane fade in active">
-                <h2><center>Login</center></h2><hr>
 
-<!--USERNAME-->
-                <div class="input-group" ng-class="{'has-error' : userForm.UserName.$invalid && (userForm.UserName.$dirty||submitted)}">
-                  <span class="input-group-addon">
-                 <i class="glyphicon glyphicon-user"></i></span>
-
-                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="user.UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
-
-                  <p ng-show="userForm.username.$error.required && (userForm.username.$dirty || submitted)" class="help-block">You username is required.</p>
-                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
-                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
-                </div><br>
-
-<!--PASSWORD-->
-                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
-                  <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-lock"></i></span>
-                 
-                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="user.password" id="pwd"  ng-required="true">
-                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
-
-                </div> <br>
-
-<!--CHECKBOX-->
-                <div  class="checkbox">
-                  <label><input type="checkbox" checked> Remember me</label>
-                  </div>
-
-<!--BTN-->
-                  <a href="#forgot" data-toggle="modal"><span></span> Forgot Password</a>
-                  <button class="btn btn-primary pull-right" ng-click="login()">Login</button>
-                    </div>
+<div ng-view></div>
 
 
-              <div id="signup" class="tab-pane fade">
-                <h2><center>Sign Up</center></h2><hr>
-
-                        <!---registration- -->
-
-<!--username-->
-                <div class="input-group" ng-class="{'has-error' : userForm.UserName.$invalid && (userForm.UserName.$dirty||submitted)}">
-                  <span class="input-group-addon">
-                 <i class="glyphicon glyphicon-user"></i></span>
-
-                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="user.UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
-
-                  <p ng-show="userForm.username.$error.required && (userForm.username.$dirty || submitted)" class="help-block">You username is required.</p>
-                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
-                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
-                </div> <br>
-
-<!--emailid-->
-                <div class="input-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
-                  <span class="input-group-addon">
-                 <i class="glyphicon glyphicon-envelope"></i></span>
-                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="user.email" id="email"  ng-required="true">
-                </div> <br>
-                <!-- pattern="/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*$/" -->
-
-<!--password-->
-                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
-                  <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-lock"></i></span>
-                 
-                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="user.password" id="pwd"  required>
-                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
-
-                </div> <br>
-
-
-                 <button type="submit" class="btn btn-primary pull-right" ng-click="register()">Register</button>
-              </div>
-
-
-              </form>
-
-<!--forgot-->
-              <div class="modal fade" id="forgot">
-               <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Recover your Password</h4>
-                        </div>
-
-              <!--email-->
-                               <div class="input-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
-                  <span class="input-group-addon">
-                 <i class="glyphicon glyphicon-envelope"></i></span>
-                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="user.email" id="email" ng-required="true">
-                </div> <br>
-
-                  <!--password-->
-
-                                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
-                  <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-lock"></i></span>
-                 
-                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="user.password" id="pwd"  required>
-                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
-
-                </div> <br>
-                           <div class="modal-footer">
-                         <button type="button" class="btn btn-default" data-dismiss="modal">Save
-                         </button>
-                         <button type="button" class="btn btn-default" data-dismiss="modal">cancel
-                         </button>
-
-                        </div>
-                      </div>
-
-              </div>
-            </div>
-          </div>
           <script src="bower_components/angular/angular.min.js"></script>
           <script src="bower_components/angular-route/angular-route.min.js"></script>
           <script src="bower_components/jquery/dist/jquery.min.js"></script>
           <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-          <script src="public/script.js"></script>
+          <script src="script.js"></script>
 </body>
 </html>

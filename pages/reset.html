@@ -1,0 +1,40 @@
+<!--forgot-->
+<div class=" logincss">
+              <div class="modal fade" id="forgot">
+               <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Recover your Password</h4>
+                        </div>
+
+              <!--email-->
+                               <div class="input-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-envelope"></i></span>
+                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="user.email" id="email" ng-required="true">
+                </div> <br>
+
+                  <!--password-->
+
+                                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-lock"></i></span>
+                 
+                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="user.password" id="pwd"  required>
+                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
+
+                </div> <br>
+                           <div class="modal-footer">
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Save
+                         </button>
+                         <button type="button" class="btn btn-default" data-dismiss="modal">cancel
+                         </button>
+
+                        </div>
+                      </div>
+
+              </div>
+            </div>
+          </div>
+        </div>

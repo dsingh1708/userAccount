@@ -1,0 +1,112 @@
+   <!---registration- -->
+ <div class=" logincss">
+   <ul class="nav nav-tabs">
+                  <li class="active"><a ng-href="#/signin" data-target="#signin" data-toggle="tab">Login</a></li>
+                  <li><a ng-href="#/signup" data-target="#signup" data-toggle="tab">Signup</a></li>
+               </ul><br>
+   <form class="form-horizontal,logincss" id="validateForm" name="userForm" novalidate>
+              <div class="tab-content">
+                <div id="" class="tab-pane fade in active">
+                <h2><center><a href="#/signup"> Signup</a></center></h2><hr>
+
+<!--username-->
+
+
+                <div class="input-group" ng-class="{'has-error' : userForm.UserName.$invalid && (userForm.UserName.$dirty||submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-user"></i></span>
+
+                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
+
+                  <p ng-show="userForm.UserName.$error.required && (userForm.UserName.$dirty || submitted)" class="help-block"></p>
+                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
+                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
+                </div> <br>
+
+                <!--firstName-->
+
+
+                <div class="input-group" ng-class="{'has-error' : userForm.firstName.$invalid && (userForm.firstName.$dirty||submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-user"></i></span>
+
+                  <input type ="text" name="firstName"  placeholder ="Enter First Name" class="form-control" ng-model="firstName" id="firstName" ng-minlength="4" ng-maxlength="8" ng-required="true">
+
+                  <p ng-show="userForm.firstName.$error.required && (userForm.firstName.$dirty || submitted)" class="help-block"></p>
+                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
+                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
+                </div> <br>
+
+                <!--lastName-->
+
+
+                <div class="input-group" ng-class="{'has-error' : userForm.lastName.$invalid && (userForm.lastName.$dirty||submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-user"></i></span>
+
+                  <input type ="text" name="lastName"  placeholder ="Enter Last Name" class="form-control" ng-model="lastName" id="lastName" ng-minlength="4" ng-maxlength="8" ng-required="true">
+
+                  <p ng-show="userForm.lastName.$error.required && (userForm.lastName.$dirty || submitted)" class="help-block"></p>
+                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
+                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
+                </div> <br>
+
+<!--emailid-->
+                <div class="input-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-envelope"></i></span>
+                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="email" id="email"  ng-required="true">
+
+                 <p ng-show="userForm.email.$error.required && (userForm.email.$dirty || submitted)" class="help-block">Enter a valid email</p>
+
+                 
+                <!-- pattern="/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*$/" -->
+                </div>
+                 <br>
+
+                 <!--phone number-->
+                <div class="input-group" ng-class="{ 'has-error' : userForm.phone.$invalid && (userForm.email.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-envelope"></i></span>
+                 <input type="text" name="phone" class="form-control" placeholder="Enter your Phone Number"  ng-model ="phone" id="phone"  ng-required="true">
+
+                 <p ng-show="userForm.phone.$error.required && (userForm.phone.$dirty || submitted)" class="help-block">Enter a valid phone number</p>
+                </div>
+                 <br>
+<!--password-->
+                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-lock"></i></span>
+                 
+                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="password" id="pwd" ng-minlength=5 ng-maxlength="8" required>
+                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Minimum length is 8.</p>
+
+                </div> <br>
+                <div>
+
+
+
+<!--confirm-->
+<div class="input-group" ng-class="{ 'has-error' : userForm.confirmpwd.$invalid && (userForm.password.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-lock"></i></span>
+                 
+                  <input type ="confirm-password" name="confirm-password" placeholder ="Confirm Password" class="form-control" ng-model="confirmpwd" id="confirmpwd" ng-minlength=5 ng-maxlength="8" required>
+                  <p ng-show="userForm.confirmpwd.$error.required && (userForm.confirmpwd.$dirty || submitted)" class="help-block">Minimum length is 8.</p>
+
+                </div> <br>
+                <div>
+
+
+                 <button ng-disabled="!user.email || !user.password" type="submit" class="btn btn-primary pull-right" ng-click="register()"> Register</a></button>
+
+              </div>
+
+
+</div>
+</div>
+</form>
+</div>
+
+
+

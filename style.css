@@ -24,3 +24,8 @@ div.logincss {
 .box{
 	padding-right: 359px;
 }
+a {
+    color: #8f4731;
+    text-decoration: none;
+    text-decoration-color: white;
+}
