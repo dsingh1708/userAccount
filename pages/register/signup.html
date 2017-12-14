@@ -9,100 +9,108 @@
                 <div id="" class="tab-pane fade in active">
                 <h2><center><a href="#/signup"> Signup</a></center></h2><hr>
 
-<!--username-->
 
 
-                <div class="input-group" ng-class="{'has-error' : userForm.UserName.$invalid && (userForm.UserName.$dirty||submitted)}">
+                <!--firstname-->
+
+
+                <div class="input-group" ng-class="{'has-error' : userForm.firstname.$invalid && (userForm.firstname.$dirty||submitted)}">
                   <span class="input-group-addon">
                  <i class="glyphicon glyphicon-user"></i></span>
+                 
+                  <input type ="text" name="firstname"  placeholder ="Enter First name" class="form-control" ng-model="firstname"   required>
 
-                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
-
-                  <p ng-show="userForm.UserName.$error.required && (userForm.UserName.$dirty || submitted)" class="help-block"></p>
-                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
-                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
+                  <p ng-show="userForm.firstname.$error.required && (userForm.firstname.$dirty || submitted)" class="help-block"></p>
+                   
                 </div> <br>
 
-                <!--firstName-->
+                <!--lastname-->
 
 
-                <div class="input-group" ng-class="{'has-error' : userForm.firstName.$invalid && (userForm.firstName.$dirty||submitted)}">
+                <div class="input-group" ng-class="{'has-error' : userForm.lastname.$invalid && (userForm.lastname.$dirty||submitted)}">
                   <span class="input-group-addon">
                  <i class="glyphicon glyphicon-user"></i></span>
+                 
 
-                  <input type ="text" name="firstName"  placeholder ="Enter First Name" class="form-control" ng-model="firstName" id="firstName" ng-minlength="4" ng-maxlength="8" ng-required="true">
+                  <input type ="text" name="lastname"  placeholder ="Enter Last name" class="form-control" ng-model="lastname" required>
 
-                  <p ng-show="userForm.firstName.$error.required && (userForm.firstName.$dirty || submitted)" class="help-block"></p>
-                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
-                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
-                </div> <br>
-
-                <!--lastName-->
-
-
-                <div class="input-group" ng-class="{'has-error' : userForm.lastName.$invalid && (userForm.lastName.$dirty||submitted)}">
-                  <span class="input-group-addon">
-                 <i class="glyphicon glyphicon-user"></i></span>
-
-                  <input type ="text" name="lastName"  placeholder ="Enter Last Name" class="form-control" ng-model="lastName" id="lastName" ng-minlength="4" ng-maxlength="8" ng-required="true">
-
-                  <p ng-show="userForm.lastName.$error.required && (userForm.lastName.$dirty || submitted)" class="help-block"></p>
-                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
-                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
+                  <p ng-show="userForm.lastname.$error.required && (userForm.lastname.$dirty || submitted)" class="help-block"></p>
+                
                 </div> <br>
 
 <!--emailid-->
                 <div class="input-group" ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
                   <span class="input-group-addon">
                  <i class="glyphicon glyphicon-envelope"></i></span>
-                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="email" id="email"  ng-required="true">
+                 <input type="text" name="email" class="form-control" placeholder="Enter your Email Id"  ng-model ="email" id="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
 
-                 <p ng-show="userForm.email.$error.required && (userForm.email.$dirty || submitted)" class="help-block">Enter a valid email</p>
+                 <span style="color:Red" ng-show="user.email.$dirty&&user.email.$error.pattern">Please Enter Valid Email</span>
+
+                 <p ng-show="user.email.$error.required">Enter a valid email</p >
 
                  
-                <!-- pattern="/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*$/" -->
+                
                 </div>
                  <br>
 
                  <!--phone number-->
-                <div class="input-group" ng-class="{ 'has-error' : userForm.phone.$invalid && (userForm.email.$dirty || submitted)}">
-                  <span class="input-group-addon">
-                 <i class="glyphicon glyphicon-envelope"></i></span>
-                 <input type="text" name="phone" class="form-control" placeholder="Enter your Phone Number"  ng-model ="phone" id="phone"  ng-required="true">
 
-                 <p ng-show="userForm.phone.$error.required && (userForm.phone.$dirty || submitted)" class="help-block">Enter a valid phone number</p>
-                </div>
+
+                 <div class="input-group" ng-class="{ 'has-error' : userForm.phone.$invalid && (userForm.phone.$dirty || submitted)}">
+                  <span class="input-group-addon">
+                 <i class="glyphicon glyphicon-phone"></i></span>
+                 <input type="text" name="phone" class="form-control" placeholder="Enter your Number"  ng-model ="phone" ng-pattern="/^[0-9]{1,10}$/" required>
+
+                 <span style="color:Red" ng-show="user.phone.$dirty&&user.phone.$error.pattern">Please Enter Valid Email</span>
+
+                 <p ng-show="user.phone.$error.required">Enter a valid phone</p >
+               </div>
                  <br>
 <!--password-->
+                
+
                 <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-lock"></i></span>
-                 
-                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="password" id="pwd" ng-minlength=5 ng-maxlength="8" required>
-                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Minimum length is 8.</p>
+                 <i class="glyphicon glyphicon-lock"></i></span>
+                 <input type="text" name="password" class="form-control" placeholder="Enter your password"  ng-model ="pwd"  required>
 
-                </div> <br>
-                <div>
+                 <span style="color:Red" ng-show="user.pwd.$dirty&&user.pwd.$error.pattern">Please Enter Password</span>
+
+                 <p ng-show="user.pwd.$error.required"></p >
+               </div>
+
+
+                <br>
+              
 
 
 
 <!--confirm-->
-<div class="input-group" ng-class="{ 'has-error' : userForm.confirmpwd.$invalid && (userForm.password.$dirty || submitted)}">
+<div class="input-group" ng-class="{ 'has-error' : userForm.confirmpwd.$invalid && (userForm.confirmpwd.$dirty || submitted)}">
+  
                   <span class="input-group-addon">
                    <i class="glyphicon glyphicon-lock"></i></span>
                  
-                  <input type ="confirm-password" name="confirm-password" placeholder ="Confirm Password" class="form-control" ng-model="confirmpwd" id="confirmpwd" ng-minlength=5 ng-maxlength="8" required>
-                  <p ng-show="userForm.confirmpwd.$error.required && (userForm.confirmpwd.$dirty || submitted)" class="help-block">Minimum length is 8.</p>
+                  <input type ="password" placeholder ="Confirm Password" class="form-control" ng-model="confirmpwd" required>
+
+                  <span style="color:Red" ng-show="pwd != confirmpwd">Password mismatch</span></div>
+
+                    <br>
+                    <div>
+                  <input type="checkbox" checked="checked"> Remember me
+          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
                 </div> <br>
-                <div>
+                
+
+                 <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" ng-disabled = "pwd != confirmpwd" ng-click="login(firstname,lastname,pwd,confirmpwd,email,phone)" class="signupbtn">Sign Up</button>  
 
 
-                 <button ng-disabled="!user.email || !user.password" type="submit" class="btn btn-primary pull-right" ng-click="register()"> Register</a></button>
+                 <!-- <button class="btn btn-primary pull-right" ng-click="register()"> Register</a></button> -->
 
               </div>
-
-
 </div>
 </div>
 </form>

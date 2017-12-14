@@ -10,42 +10,38 @@
                 <div id="" class="tab-pane fade in active">
                 <h2><center><a href="#/signin"> Login</a></center></h2><hr>
 
-<!--USERNAME-->
-                <div class="input-group" ng-class="{'has-error' : userForm.UserName.$invalid && (userForm.UserName.$dirty||submitted)}">
+<!--USERname-->
+                <div class="input-group" ng-class="{'has-error' : userForm.Username.$invalid && (userForm.Username.$dirty||submitted)}">
                   <span class="input-group-addon">
                  <i class="glyphicon glyphicon-user"></i></span>
+                  <input type ="text"   placeholder ="Enter User name" class="form-control" ng-model="Username" name="uname"  ng-required="true">
 
-                  <input type ="text" name="UserName"  placeholder ="Enter User Name" class="form-control" ng-model="UserName" id="uname" ng-minlength="4" ng-maxlength="8" ng-required="true">
-
-                  <p ng-show="userForm.UserName.$error.required && (userForm.UserName.$dirty || submitted)" class="help-block">You username is required.</p>
-                   <!-- <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
-                   <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p> -->
+                  <p ng-show="userForm.Username.$error.required && (userForm.Username.$dirty || submitted)" class="help-block">You username is required.</p>
+                   
                 </div><br>
 
 <!--PASSWORD-->
-                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+                <div class="input-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.pwd.$dirty || submitted)}">
                   <span class="input-group-addon">
                    <i class="glyphicon glyphicon-lock"></i></span>
                  
-                  <input type ="password" name="password" placeholder ="Enter Password" class="form-control" ng-model="password" id="pwd"  ng-required="true">
-                  <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)" class="help-block">Your password is required.</p>
+                  <input type ="password"  placeholder ="Enter Password" class="form-control" ng-model="pwd"   ng-required="true">
+                  <p ng-show="userForm.pwd.$error.required && (userForm.pwd.$dirty || submitted)" class="help-block">Your password is required.</p>
 
                 </div> <br>
 
 <!--CHECKBOX-->
-                <div  class="checkbox">
+
+                  <div  class="checkbox">
                   <label><input type="checkbox" checked> Remember me</label>
                   </div>
 
 <!--BTN-->
                   <a href="#forgot" data-toggle="modal"><span></span> Forgot Password</a>
-                  <button class="btn btn-primary pull-right" ng-click="login()"> Login</a></button>
+                  <button class="btn btn-primary pull-right" ng-click="loginUser()"> Login</a></button>
                     </div>
 
 
-              <div id="signup" class="tab-pane fade">
-                <h2><center>Sign Up</center></h2><hr>
-              </div>
             </div>
           </form>
 </div>
